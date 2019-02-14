@@ -49,4 +49,54 @@ function ExampleWithManyStates() {
 
 声明多个`state`, 更简洁, 如果要维护的`state`过大, 可以使用另一个新接口`useReducer`.
 
+## useEffect
+
+一个很强大的接口, 可以用它做很多东西, 毕竟它是可以替代`componentDidMount`, `componentDidUpdate`, `componentWillUnmount`, 并且把它结合起来使用的.
+
+> Mutations, subscriptions, timers, logging, and other side effects
+
+上面这句引用表明`useEffect`里面可以运行处理`state`修改, 订阅事件, 定时器, 日志输出等其它副作用
+
+```jsx
+useEffect(() => {
+  const subscription = props.source.subscribe();
+  return () => {
+    // Clean up the subscription
+    subscription.unsubscribe();
+  };
+});
+```
+
+有订阅就有取消订阅, `useEffect`中可以选择性的返回一个函数, 这函数会在ui离开(`unmount`)前运行,可以把它称为`cleaned up`, 当然, 实际中组件会有多次render, **previous effect is cleaned up before executing the next effect**, 这句话在api文档中是被加粗了的, 意思是组件render多次, 前一次effect的`cleaned up`会在下次effect前运行. **只关注`api`的新也不行, 就像讨论react, vue, angular哪家强一样, 解决问题才是重点**,
+下面结合实际项目开发中的项目说说  
+
+场景: 页面提供`id`后, 会根据server端数据渲染, 这个异步过程中, `mount`阶段页面会`loading`到渲染完成, 接着前端`id`可能改变, 需要`update`, 这时`useEffect`中的`cleaned up`会清除上次的订阅, 重新`loading`, 而不是停留在上次的数据, 清除完会重新更新页面数据. 期间页面的离开(`unmount`), `cleaned up`依然会运行, 防止了内存泄漏.
+
+```jsx
+useEffect(
+  () => {
+    const subscription = props.source.subscribe();
+    return () => {
+      subscription.unsubscribe();
+    };
+  },
+  [props.source],
+);
+```
+
+可以传递一个数组参数, 表明执行effect的条件,上面例子是只有`props.source`有改变,才会创建新的订阅.
+
+这让我想到以前的`class`组件代码:
+
+```jsx
+componentDidUpdate(prevProps) {
+  // Typical usage (don't forget to compare props):
+  if (this.props.userID !== prevProps.userID) {
+    this.fetchData(this.props.userID);
+  }
+}
+```
+
+新的`hooks`接口, 无需`if`语句, 在处理这上面更直观明确.
+
 waitting...
