@@ -14,7 +14,7 @@ JSONP不需要使用`xhr`对象, 而是使用`<script>`标签替代
 
 写了一个`demo`:
 
-- `cd docs/jsonp`, `yarn`安装
+- `cd docs/jsonp/src`, `yarn`安装
 - 打开一个终端窗口运行 `node server1`
 - 打开**另一个**终端窗口运行`node server2`
 - 访问[http://localhost:3001/](http://localhost:3001/)
