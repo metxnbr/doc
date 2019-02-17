@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JSONP DEMO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        button {
+            padding: 0 16px;
+            line-height: 3;
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background-color: #FF69B4;
+            cursor: pointer; 
+        }
+
+        h1 {
+            color: #FF69B4;
+        }
+
+        p {
+            width: 300px;
+            padding: 16px;
+            border: 1px solid #FF69B4;
+            color: #FF69B4;
+            word-wrap: break-word;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="anna">I'd like to see Anna</button>
+    <script>
+        function simpleHttp(url, getData, error) {
+            var httpRequest = new XMLHttpRequest()
+            httpRequest.open('GET', url)
+            httpRequest.send()
+            httpRequest.onreadystatechange= function() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    // Everything is good, the response was received.
+                    if (httpRequest.status === 200) {
+                        // Perfect!
+                        var json = JSON.parse(httpRequest.response)
+                        getData && getData(json)
+                    } else {
+                        // There was a problem with the request.
+                        // For example, the response may have a 404 (Not Found)
+                        // or 500 (Internal Server Error) response code.
+                    }
+                } else {
+                    // Not ready yet.
+                }
+            }
+        }
+
+        function tip() {
+            var ele = document.createElement('p');
+            var text = 'JSONP is a method for sending JSON data without worrying about cross-domain issues.JSONP does not use the XMLHttpRequestobject.JSONP uses the <script> tag instead.'
+            var textNode = document.createTextNode(text)
+            ele.appendChild(textNode)
+            document.body.appendChild(ele)
+        }
+
+        function say(text) {
+            const ele = document.createElement('h1');
+            const t = document.createTextNode(text);
+            ele.appendChild(t);
+            return ele;
+        }
+
+        var annaBtn = document.getElementById('anna');
+        annaBtn.addEventListener('click', seeAnna, false)
+
+        function createBtn(text) {
+            const ele = document.createElement('button');
+            const t = document.createTextNode(text);
+            ele.appendChild(t);
+            return ele;
+        }
+
+        function removeBtn(btn, event) {
+            btn.removeEventListener('click', event, false)
+            document.body.removeChild(btn)
+        }
+
+        var lily = document.createElement('h1');
+
+        var elsaBtn = createBtn("I'd like to see Elsa");
+
+        const continueBtn = createBtn('continue?');
+
+        function seeAnna() {
+            simpleHttp('http://localhost:3002/anna', function(json){
+                removeBtn(annaBtn, seeAnna); // remove anna btn
+
+                // anna say
+                var annaSay = say(json.say);
+                document.body.appendChild(annaSay);
+
+                // add elsa btn
+                document.body.appendChild(elsaBtn);
+                elsaBtn.addEventListener('click', seeElsa, false)
+            });
+        }
+        
+        function seeElsa() {
+            simpleHttp('http://localhost:3002/elsa');
+            tip();
+            removeBtn(elsaBtn, seeElsa, false);
+            document.body.appendChild(continueBtn);
+            continueBtn.addEventListener('click', continueSeeElsa, false);
+        }
+
+        function continueSeeElsa() {
+            removeBtn(continueBtn, continueSeeElsa)
+            var script = document.createElement('script');
+            script.src = 'http://localhost:3002/elsa?callback=elsaSay';
+            document.body.appendChild(script);
+        }
+        function elsaSay(json) {
+            // elsa say
+            var elsaSay = say(json.say);
+            document.body.appendChild(elsaSay);
+        }
+    </script>
+</body>
+</html>
