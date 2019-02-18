@@ -28,6 +28,19 @@
             color: #FF69B4;
             word-wrap: break-word;
         }
+
+        .input {
+            width: 100px;
+            padding: 0 10px;
+            margin: 0 15px;
+            line-height: 3;
+        }
+
+        .error {
+            margin-top: 16px;
+            font-weight: bold;
+            color: red;
+        }
         
     </style>
 </head>
@@ -92,6 +105,19 @@
 
         const continueBtn = createBtn('continue?');
 
+        function createSearchOther() {
+            var tip = document.createElement('div');
+            tip.innerText = 'input Kristoff, Olaf, or Hans';
+            tip.style.color = '#999';
+            tip.style.margin = '10px 0';
+            document.body.appendChild(tip);
+
+            var wrap = document.createElement('div');
+            var search = "<label>I'd like to see</label><input class='input' type='text'/><button onclick='seeOther()'>ok</button>"
+            wrap.innerHTML = search
+            document.body.appendChild(wrap)
+        }
+
         function seeAnna() {
             simpleHttp('http://localhost:3002/anna', function(json){
                 removeBtn(annaBtn, seeAnna); // remove anna btn
@@ -124,6 +150,38 @@
             // elsa say
             var elsaSay = say(json.say);
             document.body.appendChild(elsaSay);
+            createSearchOther();
+        }
+
+        function seeOther() {
+            var inputEle = document.body.querySelector('.input');
+            var script = document.createElement('script');
+            script.src = 'http://localhost:3002/other?callback=searchOther&name=' + inputEle.value;
+            document.body.appendChild(script);
+        }
+
+        var otherSay
+        var otherError
+        function searchOther(json) {
+            if(otherSay) {
+                document.body.removeChild(otherSay);
+                otherSay = undefined;
+            }
+
+            if(otherError) {
+                document.body.removeChild(otherError);
+                otherError = undefined;
+            }
+
+            if(json.status === 'success') {
+                otherSay = say(json.say);
+                document.body.appendChild(otherSay);
+            } else {
+                otherError = document.createElement('div');
+                otherError.innerText = json.say;
+                otherError.setAttribute('class', 'error');
+                document.body.appendChild(otherError);
+            }
         }
     </script>
 </body>
