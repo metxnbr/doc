@@ -35,6 +35,18 @@ html,body{
     top: 16px; 
 }
 
+.delay-wrap {
+    margin-top: 15px;
+}
+
+.delay-text {
+    color: #fff;
+}
+
+.delay {
+    width: 80px;
+}
+
 .tank {
     position: absolute;
     left: 0;
@@ -64,6 +76,7 @@ html,body{
     height: 50%;
     text-align: center;
     background-color: pink;
+    user-select: none;
 }
 
 .event-area-text {

@@ -17,28 +17,45 @@ function rain() {
 
     var debAndThr = document.querySelector('.debAndThr');
 
+    var delayEle = document.querySelector('.delay');
+
     var dropCount = 0;
 
     var isFull = false
 
-    var eventFnsObj = {
-        'none': createDrop,
-        debounce: debounce(createDrop, 1000),
-        throttle: throttle(createDrop, 1000),
+    var eventFn
+    
+    const getEventFn = function() {
+        var value = debAndThr.value;
+        var delay = delayEle.value;
+
+        // to number
+        try {
+            delay = parseFloat(delay)
+            delay = isNaN(delay) ? 0 : delay;
+        } catch (error) {
+            delay = 0
+        }
+
+        // >= 0
+        delay = delay > 0 ? delay : 0; 
+        
+        var eventFnsObj = {
+            'none': createDrop,
+            debounce: debounce(createDrop, delay),
+            throttle: throttle(createDrop, delay),
+        }
+        return eventFnsObj[value] || eventFnsObj['none'];
     }
 
-    var eventFn = eventFnsObj['none'];
-
-    function changeEventFn(value) {
+    function changeEventFn() {
         removeEvents();
-
-        eventFn = eventFnsObj[value] || eventFnsObj['none'];
-
         addEvents()
     }
 
     function addEvents() {
         if(isFull) return
+        eventFn = getEventFn()
         area.addEventListener('mousemove', eventFn, false)
         area.addEventListener('touchmove', eventFn, false)
     }
@@ -48,13 +65,17 @@ function rain() {
         area.removeEventListener('touchmove', eventFn, false)
     }
 
-    
+    // init
+    addEvents()
 
-    addEvents() // init
+    debAndThr.addEventListener('change', function() {
+        changeEventFn()
+    }, false);
 
-    debAndThr.addEventListener('change', function(event) {
-        var value = event.target.value;
-        changeEventFn(value)
+    delayEle.addEventListener('keyup', function(event) {
+        if(debAndThr.value !== 'none') {
+            changeEventFn()
+        }
     }, false);
 
     function setDeep(count) {
