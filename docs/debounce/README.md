@@ -2,7 +2,7 @@
 
 防抖和节流, 两者都是优化高频率执行的方法.
 
-- [DEMO](./debounce/)
+- [DEMO](./src/)
 
 ## debounce
 

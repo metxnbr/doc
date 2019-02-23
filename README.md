@@ -9,4 +9,4 @@
 - [react-hooks](./docs/react-hooks/).
 - [git](./docs/git/)
 - [jsonp(含demo)](./docs/jsonp/)
-- [防抖和节流](./docs/debounce/)
+- [防抖和节流](./docs/debounce/src/)
