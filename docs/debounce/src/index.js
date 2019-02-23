@@ -4,14 +4,45 @@ function rain() {
     }
 
     var tankConfig = {
+        deep: 50,
         edge: 50,
     }
 
     var wrapper = document.querySelector('.wrapper');
     var water = document.querySelector('.water');
-    var dragArea = document.getElementById('drag-area');
+    var area = document.querySelector('.event-area');
 
-    var dropCount = 0
+    var debAndThr = document.querySelector('.debAndThr');
+
+    var dropCount = 0;
+
+    var eventFnsObj = {
+        'none': createDrop,
+        debounce: debounce(createDrop, 1000),
+        throttle: throttle(createDrop, 1000),
+    }
+
+    var eventFn = eventFnsObj['none'];
+
+    function changeEventFn(value) {
+        area.removeEventListener('mousemove', eventFn, false)
+        area.removeEventListener('touchmove', eventFn, false)
+
+        eventFn = eventFnsObj[value] || eventFnsObj['none'];
+
+        area.addEventListener('mousemove', eventFn, false)
+        area.addEventListener('touchmove', eventFn, false)
+    }
+
+    
+
+    area.addEventListener('mousemove', eventFn, false)
+    area.addEventListener('touchmove', eventFn, false)
+
+    debAndThr.addEventListener('change', function(event) {
+        var value = event.target.value;
+        changeEventFn(value)
+    }, false);
 
     function setDeep(count) {
         water.style.height = Math.floor(count / 10) + 'px'; 
@@ -24,6 +55,7 @@ function rain() {
         drop.style.width = '5px';
         drop.style.height = '5px';
         drop.style.backgroundColor = '#fff';
+        drop.style.opacity = 0.7;
         drop.style.position = 'absolute';
 
         drop.style.left = Math.random() * x + 'px';
@@ -46,6 +78,4 @@ function rain() {
         requestAnimationFrame(fall)
 
     }
-
-    dragArea.addEventListener('mousemove', createDrop, false)
 }

@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./debounce.js"></script>
+    <script src="./throttle.js"></script>
     <script src="./index.js"></script>
 </head>
 <body>
@@ -15,8 +16,17 @@
         <div class="tank">
             <div class="water"></div>
         </div>
+        <div class="handle">
+                <select name="debounce&throttle" class="debAndThr">
+                    <option value="none" selected>none</option>
+                    <option value="debounce">debounce</option>
+                    <option value="throttle">throttle</option>
+                </select>
+        </div>
     </div>
-    <div id="drag-area"></div>
+    <div class="event-area">
+        <span class="event-area-text">MOVE mouse / finger</span>
+    </div>
     <div >
 
     </div>
