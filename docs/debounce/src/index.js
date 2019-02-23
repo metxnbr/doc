@@ -6,15 +6,20 @@ function rain() {
     var tankConfig = {
         deep: 50,
         edge: 50,
+        fullSpeed: 10,
     }
 
     var wrapper = document.querySelector('.wrapper');
+    var tank = document.querySelector('.tank');
     var water = document.querySelector('.water');
     var area = document.querySelector('.event-area');
+    var areaText = document.querySelector('.event-area-text');
 
     var debAndThr = document.querySelector('.debAndThr');
 
     var dropCount = 0;
+
+    var isFull = false
 
     var eventFnsObj = {
         'none': createDrop,
@@ -25,19 +30,27 @@ function rain() {
     var eventFn = eventFnsObj['none'];
 
     function changeEventFn(value) {
-        area.removeEventListener('mousemove', eventFn, false)
-        area.removeEventListener('touchmove', eventFn, false)
+        removeEvents();
 
         eventFn = eventFnsObj[value] || eventFnsObj['none'];
 
+        addEvents()
+    }
+
+    function addEvents() {
+        if(isFull) return
         area.addEventListener('mousemove', eventFn, false)
         area.addEventListener('touchmove', eventFn, false)
     }
 
+    function removeEvents() {
+        area.removeEventListener('mousemove', eventFn, false)
+        area.removeEventListener('touchmove', eventFn, false)
+    }
+
     
 
-    area.addEventListener('mousemove', eventFn, false)
-    area.addEventListener('touchmove', eventFn, false)
+    addEvents() // init
 
     debAndThr.addEventListener('change', function(event) {
         var value = event.target.value;
@@ -45,7 +58,15 @@ function rain() {
     }, false);
 
     function setDeep(count) {
-        water.style.height = Math.floor(count / 10) + 'px'; 
+        var height = Math.floor(count / tankConfig.fullSpeed);
+        if(height < tank.offsetHeight) {
+            water.style.height = height + 'px'; 
+        } else {
+            removeEvents();
+            isFull = true;
+            areaText.innerHTML = "It's full!"
+        }
+        
     }
 
     function createDrop() {
