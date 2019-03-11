@@ -9,7 +9,7 @@
 `git rebase origin` (tracking branch of origin) First, rewinding head to replay your work on top of it...
 Applying: local commit
 
-> 场景: 需要将当前分支(a)名叫`add feature`的commit以最新的提交至最新开发分支(dev)上, 但a不确定是否落后dev, 这时可以使用以上命令, 它会先将`add feature`临时移至顶部, 然后将`a`分支同步更新为`dev`分支, 最后在顶部保存`add feature`的commit. 本地dev可能不是最新的时, 你需要与线上的dev合并, 这时就得`git rebase origin/dev`
+> 场景: 需要将当前分支(a)名叫`add feature`的commit以最新的提交至最新开发分支(dev)上, 但a不确定是否落后dev, 这时可以使用以上命令, 它会先将`add feature`临时移至顶部, 然后将`a`分支同步更新为`dev`分支, 最后在顶部保存`add feature`的commit. 当本地dev可能不是最新的时, 你需要与线上的dev合并, `git fetch`更新本地分支, 然后`git rebase origin/dev`
 
 ---
 
