@@ -11,3 +11,4 @@
 - [git](./docs/git/)
 - [jsonp(含demo)](./docs/jsonp/)
 - [vscode插件收藏](./docs/vscode-extensions/)
+- [JavaScript animations(惊奇队长🤷‍)](./docs/animations/src/)
