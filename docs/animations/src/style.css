@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -149,4 +150,13 @@ body {
 .fly {
   transition: 3s ease-in;
   transform: translateY(-5000px);
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

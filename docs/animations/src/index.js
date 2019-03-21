@@ -1,11 +1,8 @@
 function main() {
-  document.body.style.overflowY = "hidden"; // disable scroll
-
   var container = document.querySelector(".container");
 
   var containerWidth = container.offsetWidth;
   var containerHeight = container.offsetHeight;
-
 
   var head = document.querySelector(".head");
 
@@ -98,15 +95,19 @@ function main() {
 
   var toggleList = document.querySelector(".toggle-list");
 
-  toggleList.addEventListener('click', function() {
-    var close = 'options-wrap w'
-    var open = 'options-wrap w open'
-    if(optionsWrap.className === close) {
-      optionsWrap.className = open;
-    } else {
-      optionsWrap.className = close;
-    }
-  }, false)
+  toggleList.addEventListener(
+    "click",
+    function() {
+      var close = "options-wrap w";
+      var open = "options-wrap w open";
+      if (optionsWrap.className === close) {
+        optionsWrap.className = open;
+      } else {
+        optionsWrap.className = close;
+      }
+    },
+    false
+  );
 
   /**
    * star
@@ -124,6 +125,16 @@ function main() {
       ele.style.opacity = Math.random();
       ele.style.boxShadow = "0 0 5px #fff";
       ele.style.backgroundColor = "#fff";
+
+      // twinkle twinkle little star
+      if (Math.random() < 0.5) {
+        ele.style.animationName = "twinkle";
+        ele.style.animationDuration = Math.ceil(Math.random() * 3) + "s";
+        ele.style.animationDelay = Math.ceil(Math.random() * 3) + "s";
+        ele.style.animationDirection = "alternate";
+        ele.style.animationIterationCount = "infinite";
+      }
+
       container.appendChild(ele);
     };
     var count = 2000;
@@ -150,7 +161,6 @@ function main() {
     setTimeout(function() {
       container.removeChild(title);
       img.className = "go show";
-      document.body.style.overflowY = "visible"; // able scroll
       img.addEventListener("click", letGo, false);
     }, 5000);
   };
