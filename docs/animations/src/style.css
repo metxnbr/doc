@@ -1,53 +1,152 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.w {
+  width: 500px;
+}
+
+.head {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid #333;
+  z-index: 99;
+}
+
+.readme {
+  border: 1px solid #666;
+  border-radius: 3px;
+  padding: 0 15px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.readme:hover {
+  transition: 0.3s;
+  border: 1px solid pink;
+  color: pink;
+}
+
+.toggle-list {
+  margin-left: auto;
+  padding: 0 15px;
+  font-size: 32px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.options-wrap {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  overflow: hidden;
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: 0.2s;
+  z-index: -9;
+}
+
+.options-wrap.open {
+  visibility: visible;
+  transform: scaleY(1);
+  z-index: 98;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 10px;
+  transition: 0.3s;
+  text-align: center;
+  width: 70px;
+  font-size: 12px;
+}
+
+.item-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid pink;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.item-text {
+  margin-top: 0.5em;
+  color: pink;
+}
+
+.select {
+  transform: scale(1.1);
+}
+
+.select .item-icon {
+  background-color: pink;
+  cursor: default;
+}
+
+.select .item-text {
+  font-weight: bold;
 }
 
 .container {
-    position: relative;
-    width: 500px;
-    height: 10000px;
-    margin: auto;
-    background-color: #000;
+  position: relative;
+  height: 10000px;
+  margin: auto;
+  background-color: #000;
+  overflow: hidden;
 }
 
 @media (max-width: 992px) {
-    .container {
-        width: 100%;
-    }
+  .w {
+    width: 100%;
+  }
 }
 
 .title {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px;
-    color: #fff;
-    font-size: 32px;
-    text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
 }
 
 .go {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    transform: translateY(200px);
-    visibility: hidden;
-    cursor: pointer;
-    user-select: none;
-    transition: 1.5s;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(200px);
+  visibility: hidden;
+  cursor: pointer;
+  user-select: none;
+  transition: 1.5s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .fly {
-    transition: 3s ease-in;
-    transform: translateY(-5000px);
+  transition: 3s ease-in;
+  transform: translateY(-5000px);
 }

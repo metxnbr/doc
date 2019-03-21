@@ -4,23 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Animations[Captain Marvel]</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container w">
+      <div class="head w">
+        <a href="../" class="readme">README.md</a>
+        <div class="toggle-list">👆</div>
+      </div>
+      <div class="options-wrap w">
+          <div class="options"></div>
+      </div>
       <div class="title"></div>
     </div>
+    <script src="./easing.js"></script>
     <script src="./index.js"></script>
     <script>
-      function readyGo (func) {
-          if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", func);
-          } else { 
-              func();
-          }
+      function readyGo(func) {
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", func);
+        } else {
+          func();
+        }
       }
       readyGo(main);
-  </script>
+    </script>
   </body>
 </html>
