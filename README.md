@@ -6,6 +6,7 @@
 有误, 或有不同意见的地方望提出和指正
 
 - [防抖和节流(趣味性应用)](./docs/debounce/src/) 📌🆕
+- [format-time 已发布到npm, 欢迎使用和指正](https://www.npmjs.com/package/je-format-time) 🎉✨
 - [正则表达式](./docs/regex/).
 - [vue-hello](./docs/vue-hello/).
 - [react-hooks](./docs/react-hooks/).
