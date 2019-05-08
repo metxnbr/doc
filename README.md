@@ -5,12 +5,21 @@
 
 有误, 或有不同意见的地方望提出和指正
 
+## pin 置顶🔥
+
+ 1 | 2 | 3
+------------ | ------------- | ------------
+[微信小程序](./docs/miniprogram/) | [正则表达式](./docs/regex/) | [format-time 已发布到npm, 欢迎使用和指正](https://www.npmjs.com/package/je-format-time)
+
+## 列表
+
 - [防抖和节流(趣味性应用)](./docs/debounce/src/) 📌🆕
 - [format-time 已发布到npm, 欢迎使用和指正](https://www.npmjs.com/package/je-format-time) 🎉✨
-- [正则表达式](./docs/regex/).
-- [vue-hello](./docs/vue-hello/).
-- [react-hooks](./docs/react-hooks/).
+- [正则表达式](./docs/regex/)
+- [vue-hello](./docs/vue-hello/)
+- [react-hooks](./docs/react-hooks/)
 - [git](./docs/git/)
 - [jsonp(含demo)](./docs/jsonp/)
 - [vscode插件收藏](./docs/vscode-extensions/)
 - [JavaScript animations(惊奇队长🤷‍)](./docs/animations/src/)
+- [微信小程序](./docs/miniprogram/)
