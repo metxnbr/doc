@@ -1,9 +1,8 @@
 # miniprogram 微信小程序
 
-- [utils/authorize 附注释](./authorize.js)
-- [demo/utils/authorize demo项目种的工具函数](https://github.com/metxnbr/miniprogram-authorize/blob/master/utils/authorize.js)
-
-- [demo仓库](https://github.com/metxnbr/miniprogram-authorize/tree/master)
+- [utils/authorize 附注释](https://github.com/metxnbr/doc/blob/master/docs/miniprogram/authorize.js)
+- [demo仓库](https://github.com/metxnbr/miniprogram-authorize/tree/master)🚀
+- [demo/utils/authorize demo项目中的工具函数](https://github.com/metxnbr/miniprogram-authorize/blob/master/utils/authorize.js)
 
 关于小程序, 暂只谈下授权方面的, 引导用户开启权限, 设计一个合理的交互, 让程序继续下去.
 有的小程序需设计为某权限必须开启才能继续, 在这种情况下合理的引导交互, 显得尤为重要.
