@@ -6,3 +6,7 @@
 
 - [前端部分](https://github.com/metxnbr/miniprogram-api-frontend) 🚀
 - [后台部分](https://github.com/metxnbr/miniprogram-api)
+
+## Other
+
+- [小程序授权](https://github.com/metxnbr/miniprogram-authorize)
