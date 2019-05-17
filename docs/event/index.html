@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="order">
+          <div class="order-wrap">
+            <h1>Order 事件顺序</h1>
+            <div class="intro">
+              点击不同颜色盒子, 盒子上的绑定事件如果被执行, 盒子会显示数字,
+              不同数字代表事件调用顺序. 点击按钮设置事件的第三个参数useCapture,
+              指定事件是否在捕获或冒泡阶段执行, 来改变事件的调用顺序.
+              来测试下和预期的数字是否一致.
+            </div>
+            <div class="order-box order-a order-a-color">
+              <div class="order-num"></div>
+              <div class="order-box order-b order-b-color">
+                <div class="order-num"></div>
+                <div class="order-box order-c order-c-color">
+                  <div class="order-num"></div>
+                </div>
+              </div>
+            </div>
+            <div class="order-count">
+              盒子上事件函数执行的总次数:<span>0</span>
+            </div>
+            <div class="order-code">
+              <div class="order-code-item">
+                <div class="order-btn order-c-color">点击</div>
+                <div class="code order-code-text">
+                  addEventListener('click', fn, false)
+                </div>
+              </div>
+              <div class="order-code-item">
+                <div class="order-btn order-b-color">点击</div>
+                <div class="code order-code-text">
+                  addEventListener('click', fn, false)
+                </div>
+              </div>
+              <div class="order-code-item">
+                <div class="order-btn order-a-color">点击</div>
+                <div class="code order-code-text">
+                  addEventListener('click', fn, false)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h1>Waiting...</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./order.js"></script>
+  </body>
+</html>
