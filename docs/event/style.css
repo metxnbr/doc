@@ -1,3 +1,13 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin-top: 30px;
+  padding-bottom: 100px;
+}
+
 .doc {
   font-size: 36px;
   font-weight: bold;
@@ -29,7 +39,7 @@
 
 h1 {
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.3;
   padding: 0;
   margin: 0;
 }
@@ -137,4 +147,22 @@ h1 {
   color: #fff;
   cursor: pointer;
   user-select: none;
+}
+
+.delegation {
+  margin-top: 60px;
+}
+
+.delegation-box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-top: 30px;
+  background-color: #ffbedc;
+}
+
+.delegation-item {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
 }
