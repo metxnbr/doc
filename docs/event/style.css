@@ -5,7 +5,7 @@ body {
 
 .container {
   margin-top: 30px;
-  padding-bottom: 100px;
+  padding-bottom: 300px;
 }
 
 .doc {
@@ -165,4 +165,8 @@ h1 {
   position: absolute;
   border-radius: 50%;
   background-color: #fff;
+}
+
+.propagate {
+  margin-top: 50px;
 }
