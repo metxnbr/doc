@@ -5,7 +5,7 @@ body {
 
 .container {
   margin-top: 30px;
-  padding-bottom: 100px;
+  padding-bottom: 300px;
 }
 
 .doc {
@@ -165,4 +165,68 @@ h1 {
   position: absolute;
   border-radius: 50%;
   background-color: #fff;
+}
+
+.propagate {
+  margin-top: 50px;
+}
+
+.propagate-drop-down-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.propagate-drop-down {
+  width: 240px;
+  position: relative;
+  line-height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.propagate-drop-value {
+  padding-left: 15px;
+  padding-right: 50px;
+}
+
+.propagate-drop-options {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 3px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px #ddd;
+  background-color: #fff;
+}
+
+.propagate-drop-arrow {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  margin-top: -3px;
+  border-top: 5px solid transparent;
+  border-right: 5px solid #999;
+  border-bottom: 5px solid transparent;
+  transition: 0.2s;
+}
+
+.propagate-drop-arrow.drop {
+  transform: rotate(-90deg);
+}
+
+.propagate-drop-item {
+  padding: 0 15px;
+  transition: 0.2s;
+}
+
+.propagate-drop-item:hover {
+  background-color: #ddd;
 }
