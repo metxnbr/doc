@@ -42,7 +42,7 @@
   };
 
   Item.prototype.render = function() {
-    const styles = this.create();
+    var styles = this.create();
     var item = document.createElement("div");
 
     item.style.left = styles.left + "px";

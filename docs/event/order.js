@@ -6,7 +6,7 @@
   var codes = document.querySelectorAll(".order-code-text");
   var nums = document.querySelectorAll(".order-num");
 
-  const events = [
+  var events = [
     {
       box: boxs[0],
       btn: btns[2],
@@ -62,7 +62,7 @@
 
         item.box.addEventListener("click", fn, !opt);
 
-        const changedValeu = opt ? "<b>false</b>" : "<b>true</b>";
+        var changedValeu = opt ? "<b>false</b>" : "<b>true</b>";
 
         item.code.innerHTML = item.code.innerHTML.replace(
           /false|true/,
