@@ -10,11 +10,11 @@
 
  1 | 2 | 3
 ------------ | ------------- | ------------
-[小程序前/后端](./docs/0514) | [React Hook 高灵活弹窗组件](https://github.com/metxnbr/react-hook-modal) | [防抖和节流(趣味性应用)](./docs/debounce/src/)
+[小程序前/后端](./docs/0514) | [React Hook 高灵活弹窗组件](https://github.com/metxnbr/react-hook-modal) | [🖼定制轮播插件(开发中)](https://github.com/metxnbr/awesome-slider)
 
 4 | 5
------------- | --------------
-[JavaScript 事件](./docs/event) | [正则表达式](./docs/regex/)
+------------ | -------------- | ---------------
+[JavaScript 事件](./docs/event) | [防抖和节流(趣味性应用)](./docs/debounce/src/)
 
 ## 列表
 
@@ -31,3 +31,4 @@
 - [小程序前/后端](./docs/0514)
 - [JavaScript 事件](./docs/event)
 - [React Hook 高灵活弹窗组件](https://github.com/metxnbr/react-hook-modal)
+- [🖼定制轮播插件(开发中)](https://github.com/metxnbr/awesome-slider)
