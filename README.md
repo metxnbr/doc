@@ -10,7 +10,7 @@
 
  1 | 2 | 3
 ------------ | ------------- | ------------
-[小程序前/后端](./docs/0514) | [React Hook 高灵活弹窗组件](https://github.com/metxnbr/react-hook-modal) | [🖼定制轮播插件(开发中)](https://github.com/metxnbr/awesome-slider)
+[小程序前/后端](./docs/0514) | [React Hook 高灵活弹窗组件](https://github.com/metxnbr/react-hook-modal) | [🚀定制轮播插件](https://github.com/metxnbr/awesome-slider)
 
 4 | 5
 ------------ | --------------
